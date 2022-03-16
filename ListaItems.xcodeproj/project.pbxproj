@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38CE1C0A27E2372D009910D1 /* Alumno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CE1C0927E2372D009910D1 /* Alumno.swift */; };
 		38FB49D227DF92A0002F8D7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FB49D127DF92A0002F8D7D /* AppDelegate.swift */; };
 		38FB49D427DF92A0002F8D7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FB49D327DF92A0002F8D7D /* SceneDelegate.swift */; };
 		38FB49D627DF92A0002F8D7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FB49D527DF92A0002F8D7D /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38CE1C0927E2372D009910D1 /* Alumno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alumno.swift; sourceTree = "<group>"; };
 		38FB49CE27DF92A0002F8D7D /* ListaItems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListaItems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FB49D127DF92A0002F8D7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FB49D327DF92A0002F8D7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				38FB49DA27DF92A1002F8D7D /* Assets.xcassets */,
 				38FB49DC27DF92A1002F8D7D /* LaunchScreen.storyboard */,
 				38FB49DF27DF92A1002F8D7D /* Info.plist */,
+				38CE1C0927E2372D009910D1 /* Alumno.swift */,
 			);
 			path = ListaItems;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38FB49D627DF92A0002F8D7D /* ViewController.swift in Sources */,
+				38CE1C0A27E2372D009910D1 /* Alumno.swift in Sources */,
 				38FB49D227DF92A0002F8D7D /* AppDelegate.swift in Sources */,
 				38FB49D427DF92A0002F8D7D /* SceneDelegate.swift in Sources */,
 				38FB49E727DF991A002F8D7D /* VistaDetalladaViewController.swift in Sources */,

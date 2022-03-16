@@ -9,8 +9,9 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var alumnos = ["Fernando", "Jose", "Pedro", "Julio", "Marcos", "Carlos", "Pablo"]
+    var alumnos = [Alumno(nombre: "Marco", calificacion: 90)]
     var alumnoSeleccionado: String?
+    var califSeleccionado: Int?
     
     @IBOutlet weak var tablaItems: UITableView!
     override func viewDidLoad() {
@@ -29,10 +30,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             nombreAlerta.placeholder = "Escribe un nuevo nombre"
         }
         
+        alerta.addTextField { calificacionAlerta in
+            calificacionAlerta.placeholder = "Ingresa la calificacion"
+            calificacionAlerta.keyboardType = .numberPad
+        }
+        
         let accionAceptar = UIAlertAction(title: "Aceptar", style: .default) { _ in
             // guard let
             guard let nombreAlumno = alerta.textFields?.first?.text else {return}
-            self.alumnos.append(nombreAlumno)
+            guard let calificacionAlumno = alerta.textFields?[1].text else {return}
+            
+            // crear objeto
+            let nuevoAlumno = Alumno(nombre: nombreAlumno, calificacion: Int(calificacionAlumno) ?? 0)
+            self.alumnos.append(nuevoAlumno)
             print(self.alumnos)
             
             print("Alumno agregado")
@@ -56,8 +66,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Crear objeto del tipo UITableviewCell
         let celda = tablaItems.dequeueReusableCell(withIdentifier: "celda", for: indexPath)
-        celda.textLabel?.text = alumnos[indexPath.row]
-        celda.detailTextLabel?.text = "14 de marzo 2022"
+        celda.textLabel?.text = alumnos[indexPath.row].nombre
+        celda.detailTextLabel?.text = String(alumnos[indexPath.row].calificacion ?? 0)
         return celda
     }
     
@@ -73,13 +83,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(alumnos[indexPath.row])
-        alumnoSeleccionado = alumnos[indexPath.row]
+        alumnoSeleccionado = alumnos[indexPath.row].nombre
+        califSeleccionado = alumnos[indexPath.row].calificacion
         //Mandar elemento seleccionado a segundo View Controller
         performSegue(withIdentifier: "enviarNombre", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let objetoDestino = segue.destination as! VistaDetalladaViewController
         objetoDestino.recibirNombre = alumnoSeleccionado
+        objetoDestino.recibirCalificacion = califSeleccionado
     }
     
 }
